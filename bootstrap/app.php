@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckMembership;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -11,7 +12,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            "isAuth" => App\Http\Middleware\IsAuth::class,
+            "isMember" => App\Http\Middleware\CheckMembership::class,
+        ]);
+        
+        $middleware->validateCsrfTokens(except:[
+            "*"
+        ]);
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
