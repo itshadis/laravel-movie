@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,4 +28,24 @@ Route::get("/login", function() {
 
 Route::get("/pricing", function() {
     return "Please, buy a membership!";
+});
+
+Route::get("/request", function(Request $request) {
+    return $request->name;
+});
+
+Route::get("/cache", function() {
+    return response("ok", 200)
+            ->header("Content-Type", "text/plain")
+            ->header("Cache-Control", "public, max-age=3600");
+});
+
+Route::get("cookie", function() {
+    $user = "admin";
+
+    return response("ok", 200)->cookie("user", $user);
+});
+
+Route::get("logout", function() {
+    return response("logout berhasil", 200)->withoutCookie("user");
 });

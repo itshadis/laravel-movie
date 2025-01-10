@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -30,7 +29,11 @@ class MovieController extends Controller implements HasMiddleware
     }
 
     public function index() {
-        return $this->movies;
+        return response()->json([
+            "status" => true,
+            "message" => "success",
+            "data" => $this->movies
+        ], 200);
     }
 
     public function show($id) {
