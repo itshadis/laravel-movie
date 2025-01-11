@@ -49,3 +49,7 @@ Route::get("cookie", function() {
 Route::get("logout", function() {
     return response("logout berhasil", 200)->withoutCookie("user");
 });
+
+Route::get("/home", function() {
+    return view("home");
+});
