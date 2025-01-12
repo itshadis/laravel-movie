@@ -12,13 +12,48 @@ class MovieController extends Controller implements HasMiddleware
 
     public function __construct() 
     {
-        for($i=0; $i<10; $i++) {
-            $this->movies[] = [
-                "title" => "Movie {$i}",
-                "year" => "2015",
-                "genre" => "Action"
-            ];
-        }
+        $this->movies = [
+            [
+                "title" => "Oppenheimer",
+                "desc" => "A historical drama following the life of J. Robert Oppenheimer, the physisct who helper...",
+                "release_date" => "2023-07-21",
+                "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
+                "genres" => ["Drama", "History", "Thriller"],
+                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+            ],
+            [
+                "title" => "Oppenheimer",
+                "desc" => "A historical drama following the life of J. Robert Oppenheimer, the physisct who helper...",
+                "release_date" => "2023-07-21",
+                "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
+                "genres" => ["Drama", "History", "Thriller"],
+                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+            ],
+            [
+                "title" => "Oppenheimer",
+                "desc" => "A historical drama following the life of J. Robert Oppenheimer, the physisct who helper...",
+                "release_date" => "2023-07-21",
+                "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
+                "genres" => ["Drama", "History", "Thriller"],
+                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+            ],
+            [
+                "title" => "Oppenheimer",
+                "desc" => "A historical drama following the life of J. Robert Oppenheimer, the physisct who helper...",
+                "release_date" => "2023-07-21",
+                "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
+                "genres" => ["Drama", "History", "Thriller"],
+                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+            ],
+            [
+                "title" => "Oppenheimer",
+                "desc" => "A historical drama following the life of J. Robert Oppenheimer, the physisct who helper...",
+                "release_date" => "2023-07-21",
+                "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
+                "genres" => ["Drama", "History", "Thriller"],
+                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+            ]
+        ];
     }
 
     public static function middleware() {
