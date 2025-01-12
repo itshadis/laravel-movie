@@ -19,7 +19,7 @@ class MovieController extends Controller implements HasMiddleware
                 "release_date" => "2023-07-21",
                 "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
                 "genres" => ["Drama", "History", "Thriller"],
-                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+                "image" => "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
             ],
             [
                 "title" => "Oppenheimer",
@@ -27,7 +27,7 @@ class MovieController extends Controller implements HasMiddleware
                 "release_date" => "2023-07-21",
                 "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
                 "genres" => ["Drama", "History", "Thriller"],
-                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+                "image" => "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
             ],
             [
                 "title" => "Oppenheimer",
@@ -35,7 +35,7 @@ class MovieController extends Controller implements HasMiddleware
                 "release_date" => "2023-07-21",
                 "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
                 "genres" => ["Drama", "History", "Thriller"],
-                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+                "image" => "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
             ],
             [
                 "title" => "Oppenheimer",
@@ -43,7 +43,7 @@ class MovieController extends Controller implements HasMiddleware
                 "release_date" => "2023-07-21",
                 "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
                 "genres" => ["Drama", "History", "Thriller"],
-                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+                "image" => "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
             ],
             [
                 "title" => "Oppenheimer",
@@ -51,7 +51,15 @@ class MovieController extends Controller implements HasMiddleware
                 "release_date" => "2023-07-21",
                 "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
                 "genres" => ["Drama", "History", "Thriller"],
-                "image" => "https://image.tmdb.org/t/p/w500/aCzRPvhbBWOdNfwN1gdXK46DMBM.jpg"
+                "image" => "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+            ],
+            [
+                "title" => "Oppenheimer",
+                "desc" => "A historical drama following the life of J. Robert Oppenheimer, the physisct who helper...",
+                "release_date" => "2023-07-21",
+                "cast" => ["Cillian Murphy", "Emily Blunt", "Matt Damon", "Robert Downey Jr", "Florench Pugh"],
+                "genres" => ["Drama", "History", "Thriller"],
+                "image" => "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
             ]
         ];
     }
@@ -70,7 +78,7 @@ class MovieController extends Controller implements HasMiddleware
         //     "data" => $this->movies
         // ], 200);
 
-        $movie = [ "movie" => $this->movies ];
+        $movie = [ "movies" => $this->movies ];
 
         return view("movies.index", $movie);
     }
