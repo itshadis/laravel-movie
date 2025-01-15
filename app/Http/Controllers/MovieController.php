@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -83,20 +84,29 @@ class MovieController extends Controller implements HasMiddleware
         return view("movies.index", $movie);
     }
 
+    public function create() {
+        return view("movies.create");
+    }
+    
     public function show($id) {
-        $movie = [ "movie" => $this->movies ];
-
+        $movie = [ "movie" => $this->movies[$id] ];
         return view("movies.show", $movie);
     }
 
-    public function store() {
-        $this->movies[] = [
-            "title" => request("title"),
-            "year" => request("year"),
-            "genre" => request("genre")
+
+    public function store(Request $request) {
+        $newMovie = [
+            "title" => $request["title"],
+            "desc" => $request["desc"],
+            "release_date" => $request["release_date"],
+            "cast" => explode(",", $request["cast"]),
+            "genres" => explode(",", $request["genres"]),
+            "image" => $request["image"],
         ];
 
-        return $this->movies;
+        $this->movies[] = $newMovie;
+
+        return $this->index();
     }
 
     public function update($id) {

@@ -3,7 +3,7 @@
 @section('content')
   <div class="grid justify-items-center grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4 mt-2 px-20">
     @foreach ($movies as $movie)
-    <a href="">
+    <a href="{{ route("movie.show", $loop->index) }}">
       <div class="bg-gray-800 p-4 rounded-lg relative group">
         <img src="{{ $movie["image"] }}" alt="{{ $movie["title"] }}" class="w-full rounded-md">
         <h3 class="text-lg mt-2">{{ $movie["title"] }}</h3>

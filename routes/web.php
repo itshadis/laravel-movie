@@ -4,19 +4,16 @@ use App\Http\Controllers\MovieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(
     [
         "prefix" => "movie",
         "as" => "movie."
     ],
     function() {
-        Route::get("/", [MovieController::class, "index"]);
-        Route::get("/{id}", [MovieController::class, "show"]);
-        Route::post("/", [MovieController::class, "store"]);
+        Route::get("/", [MovieController::class, "index"])->name("index");
+        Route::get("/create", [MovieController::class, "create"])->name("create");
+        Route::get("/{id}", [MovieController::class, "show"])->name("show");
+        Route::post("/", [MovieController::class, "store"])->name("store");
         Route::put("/{id}", [MovieController::class, "update"]);
         Route::delete("/{id}", [MovieController::class, "destroy"]);
     }
@@ -50,6 +47,6 @@ Route::get("logout", function() {
     return response("logout berhasil", 200)->withoutCookie("user");
 });
 
-Route::get("/home", function() {
+Route::get("/", function() {
     return view("home");
 });
