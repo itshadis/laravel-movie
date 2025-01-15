@@ -93,7 +93,7 @@ class MovieController extends Controller implements HasMiddleware
     
     public function show($id) 
     {
-        $movie = [ "movie" => $this->movies[$id] ];
+        $movie = [ "movie" => $this->movies[$id], "movieId" => $id ];
         return view("movies.show", $movie);
     }
 
@@ -139,6 +139,6 @@ class MovieController extends Controller implements HasMiddleware
     {
         unset($this->movies[$id]);
 
-        return $this->movies;
+        return $this->index();
     }
 }
