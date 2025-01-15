@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\MovieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MovieController;
 
 Route::group(
     [
@@ -11,10 +11,11 @@ Route::group(
     ],
     function() {
         Route::get("/", [MovieController::class, "index"])->name("index");
+        Route::post("/", [MovieController::class, "store"])->name("store");
         Route::get("/create", [MovieController::class, "create"])->name("create");
         Route::get("/{id}", [MovieController::class, "show"])->name("show");
-        Route::post("/", [MovieController::class, "store"])->name("store");
-        Route::put("/{id}", [MovieController::class, "update"]);
+        Route::get("/{id}/edit", [MovieController::class, "edit"])->name("edit");
+        Route::put("/{id}", [MovieController::class, "update"])->name("update");
         Route::delete("/{id}", [MovieController::class, "destroy"]);
     }
 );

@@ -65,16 +65,14 @@ class MovieController extends Controller implements HasMiddleware
         ];
     }
 
-    public static function middleware() 
-    {
+    public static function middleware() {
         // return [
         //     "isAuth",
         //     new Middleware("isMember", only: ["show"])
         // ];
     }
 
-    public function index() 
-    {
+    public function index() {
         // return response()->json([
         //     "status" => true,
         //     "message" => "success",
@@ -86,20 +84,17 @@ class MovieController extends Controller implements HasMiddleware
         return view("movies.index", $movie);
     }
 
-    public function create() 
-    {
+    public function create() {
         return view("movies.create");
     }
     
-    public function show($id) 
-    {
+    public function show($id) {
         $movie = [ "movie" => $this->movies[$id] ];
         return view("movies.show", $movie);
     }
 
 
-    public function store(Request $request) 
-    {
+    public function store(Request $request) {
         $newMovie = [
             "title" => $request["title"],
             "desc" => $request["desc"],
@@ -114,29 +109,23 @@ class MovieController extends Controller implements HasMiddleware
         return $this->index();
     }
 
-    public function edit($id) 
-    {
+    public function edit($id) {
         $movie = $this->movies[$id];
-        $movie["casts"] = implode(",", $movie["cast"]);
+        $movie["cast"] = implode(",", $movie["cast"]);
         $movie["genres"] = implode(",", $movie["genres"]);
 
-        return view("movies.edit", ["movie" => $movie, "movieId" => $id]);
+        return view("movies.edit", ["movie" => $movie]);
     }
 
-    public function update(Request $request, $id) 
-    {
-        $this->movies[$id]["title"] = $request["title"];
-        $this->movies[$id]["release_date"] = $request["release_date"];
-        $this->movies[$id]["desc"] = $request["desc"];
-        $this->movies[$id]["casts"] = explode(",", $request["casts"]);
-        $this->movies[$id]["genres"] = explode(",", $request["genres"]);
-        $this->movies[$id]["image"] = $request["image"];
+    public function update($id) {
+        $this->movies[$id]["title"] = request("title");
+        $this->movies[$id]["year"] = request("year");
+        $this->movies[$id]["genre"] = request("genre");
 
-        return $this->show($id);
+        return $this->movies;
     }
 
-    public function destroy($id) 
-    {
+    public function destroy($id) {
         unset($this->movies[$id]);
 
         return $this->movies;
